@@ -34,11 +34,11 @@ triggers:
     image: relaysh/victorops-trigger-incident-triggered:latest
   binding:
     parameters:
-      id: !Data 'incident_id'
-      name: !Data 'incident_name'
-      state: !Data 'incident_state'
-      service: !Data 'service'
-      timestamp: !Data 'incident_timestamp'
+      id: !Data incident_id
+      name: !Data incident_name
+      state: !Data incident_state
+      service: !Data service
+      timestamp: !Data incident_timestamp
 ```
 
 ## Example Raw Data 
