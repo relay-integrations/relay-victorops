@@ -9,7 +9,7 @@ The following are supported actions:
 
 |   Type    |  Name                                 | Description                             | 
 |-----------|---------------------------------------|-----------------------------------------|
-| Trigger      | [victorops-trigger-incident-triggered](/actions/triggers/incident-triggered)  | When a new incident is created in VictorOps | 
+| Trigger      | [victorops-trigger-incident-triggered](/triggers/victorops-trigger-incident-triggered)  | When a new incident is created in VictorOps | 
 
 ## Contributing
 

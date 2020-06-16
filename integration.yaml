@@ -5,7 +5,7 @@ channel: alpha
 version: v20200522
 summary: Relay integration for VictorOps
 license: Apache-2.0
-homepage: https://github.com/relay-integrations/victorops
+homepage: https://github.com/relay-integrations/relay-victorops
 
 description: |
   This integration provides access to VictorOps, a real-time operations and
