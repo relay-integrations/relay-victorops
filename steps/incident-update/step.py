@@ -6,7 +6,7 @@ from relay_sdk import Interface, Dynamic as D
 
 relay = Interface()
 
-url_base = relay.get(D.endpoint_url),
+url_base = relay.get(D.endpoint_url)
 routing_key = relay.get(D.routing_key)
 
 url = f"{url_base}{routing_key}"
