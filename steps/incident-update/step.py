@@ -9,7 +9,7 @@ relay = Interface()
 url_base = relay.get(D.endpoint_url),
 routing_key = relay.get(D.routing_key)
 
-url = url_base + '/' + routing_key
+url = url_base + routing_key
 
 event_payload = {
   'message_type': 'INFO',
