@@ -43,6 +43,52 @@ triggers:
 
 ## Example Raw Data 
 
+
+```
+Accept: */*
+Connection: close
+Content-Length: 1428
+Content-Type: application/x-www-form-urlencoded
+User-Agent: AHC/1.0
+X-Victorops-Signature: ......
+
+incident=5129
+x-forwarded-port="443"
+monitoring_tool="splunk"
+state_start_time="1601667241571"
+timestamp="1601667241571"
+notificationtype="CRITICAL"
+x-request-id="b7794c7e-7207-4f4e-854c-3038629c4426"
+vo_orig.message_type="CRITICAL"
+vo_alert_type="SERVICE"
+vo_alert_rcv_time="1601667241571"
+x-forwarded-proto="https"
+entity_display_name="Cloud+DDoS+Alert:+[HIGH]+Adaptive+|+WD_Adaptive+Site,+GRE+Tunnel7+SYD-AR-2+is+down"
+contactgroupname="ohboy"
+message_type="CRITICAL"
+alert_type="CRITICAL"
+vo_uuid="a5fcfee2-1d8e-4c72-9163-a523dbf254db"
+entity_state="CRITICAL"
+alert_received_week_time_utc="2020-W40-5T19:34:01Z"
+x-amzn-trace-id="Root=1-5f7780a9-0945d563720e26ec102b88e6"
+api_key="ffffffff-ffff-ffff-ffff-ffffffffffff"
+entity_id="Adaptive+|+WD_Adaptive+Site,+GRE+Tunnel7+SYD-AR-2"
+state_message="++"
+vo_orig.entity_id="024957c9-47e2-4229-b5de-93167aaceef1"
+vo_routing_keys="ohboy"
+alert_received_time_utc="2020-10-02T19:34:01Z"
+message=
+servicestate="CRITICAL"
+ddos_type="down"
+vo_organization_id="votest-eli"
+routing_key="ohboy"
+vo_monitor_type="15"
+summary=
+vo_annotate.u.runbook="http://google.com"
+```
+
+Previous (possibly no longer active?) json payload:
+
 ```
 {
   "INCIDENT.INCIDENT_ID": "14",
