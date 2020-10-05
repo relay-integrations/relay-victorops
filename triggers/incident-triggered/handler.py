@@ -10,7 +10,7 @@ logging.getLogger().setLevel(logging.INFO)
 
 @app.route('/', methods=['POST'])
 async def handler():
-    data = await request.get_data()
+    data = await request.form()
 
     relay.events.emit({
 	'incident_id': data['incident'],
