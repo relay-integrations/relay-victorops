@@ -1,4 +1,4 @@
-from nebula_sdk import Interface, WebhookServer
+from relay_sdk import Interface, WebhookServer
 from quart import Quart, request
 
 import logging
@@ -19,7 +19,7 @@ async def handler():
 	'incident_routing_key': data['routing_keys'],
 	'incident_entity_id': data['entity_id']
     })
-    return {'success': True}
+    return await "Webhook payload received by Relay"
 
 if __name__ == '__main__':
     WebhookServer(app).serve_forever()
