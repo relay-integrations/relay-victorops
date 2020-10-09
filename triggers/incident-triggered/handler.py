@@ -23,7 +23,9 @@ async def handler():
         if field == 'incident':
             event['incident'] = value
 
-    relay.events.emit(event,key=event['incident'])
+    print("emitting event about incidnet" + event['incident'] + ":::")
+    print(event['webhook_payload'])
+    relay.events.emit(event)
 
     return await render_template_string("Relay received payload about {{incident}}", incident=event['incident'])
 
