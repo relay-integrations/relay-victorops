@@ -1,7 +1,7 @@
 from relay_sdk import Interface, WebhookServer
 from quart import Quart, request, render_template_string
 
-import logging
+import logging, sys
 
 relay = Interface()
 app = Quart('incident-triggered')
@@ -23,8 +23,8 @@ async def handler():
         if field == 'incident':
             event['incident'] = value
 
-    print("emitting event about incidnet" + event['incident'] + ":::")
-    print(event['webhook_payload'])
+    print("emitting event about incident" + event['incident'] + ":::",file=sys.stderr)
+    print(event['webhook_payload'],file=sys.stderr)
     relay.events.emit(event)
 
     return await render_template_string("Relay received payload about {{incident}}", incident=event['incident'])
