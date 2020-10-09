@@ -19,13 +19,13 @@ async def handler():
     # handle incident_id a bit special since it's the main key, the rest of the
     # payload may change so just stuff it in a top-level key unmodified
     for field, value in data.items():
-        event['webhook_payload'][field] = value
+        event['webhook_payload'][field] = value.strip('"')
         if field == 'incident':
             event['incident'] = value
 
-    print("emitting event about incident" + event['incident'] + ":::",file=sys.stderr)
+    print("emitting event about incident " + event['incident'] + ":::",file=sys.stderr)
     print(event['webhook_payload'],file=sys.stderr)
-    relay.events.emit(event)
+    relay.events.emit(event,key=event['incident'])
 
     return await render_template_string("Relay received payload about {{incident}}", incident=event['incident'])
 
