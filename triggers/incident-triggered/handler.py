@@ -12,7 +12,7 @@ logging.getLogger().setLevel(logging.INFO)
 async def handler():
     data = await request.form
 
-    event = { 'webhook_payload': {},
+    event = { 'webhook_payload': { 'static': 'test' },
               'incident': 0
             }
 
@@ -25,7 +25,7 @@ async def handler():
 
     print("emitting event about incident " + event['incident'] + ":::",file=sys.stderr)
     print(event['webhook_payload'],file=sys.stderr)
-    relay.events.emit(event,key=event['incident'])
+    relay.events.emit(event)
 
     return await render_template_string("Relay received payload about {{incident}}", incident=event['incident'])
 
