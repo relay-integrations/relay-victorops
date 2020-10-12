@@ -24,7 +24,7 @@ async def handler():
             event['incident'] = value
 
     print("emitting event about incident " + event['incident'] + ":::",file=sys.stderr)
-    print(event['webhook_payload'],file=sys.stderr)
+    print(event,file=sys.stderr)
     relay.events.emit(event)
 
     return await render_template_string("Relay received payload about {{incident}}", incident=event['incident'])
