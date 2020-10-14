@@ -1,0 +1,45 @@
+apiVersion: integration/v1
+kind: Trigger
+name: incident-triggered
+version: 1
+summary: VictorOps incident triggered
+description: |
+  This trigger fires when a VictorOps incident is triggered for the first time.
+
+responders:
+- webhook
+
+schemas:
+  spec: {}
+  event:
+    source: file
+    file: event.schema.json
+
+examples:
+- summary: Receive a webhook from VictorOps when an incident is created
+  content:
+    apiVersion: v1
+    kind: Workflow
+    parameters:
+      id:
+      name:
+      state:
+      timestamp:
+    triggers:
+    - name: victorops-incident
+      source:
+        type: webhook
+        image: relaysh/victorops-trigger-incident-triggered:latest
+      binding:
+        parameters:
+          id: !Data incident
+          name: !Data webhook_payload.entity_display_name
+          state: !Data webhook_payload.entity_state
+          timestamp: !Data webhook_payload.vo_alert_rcv_time
+
+build:
+  apiVersion: build/v1
+  kind: Docker
+
+publish:
+  repository: relaysh/victorops-trigger-incident-triggered

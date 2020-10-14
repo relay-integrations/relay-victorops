@@ -1,0 +1,54 @@
+# Step metadata example - full description at:
+# https://github.com/puppetlabs/relay-rfcs/blob/master/content/0006-integration-layout/rfc.md#common-metadata
+apiVersion: integration/v1
+kind: Step
+name: incident-update
+version: 1
+summary: This step updates a VictorOps timeline from a Relay workflow.
+
+description: |
+  Use this step to feed information back into VictorOps. It will update the
+  account timeline and optionally, if an `entity_id` for an existing incident
+  is supplied to the step, will associate the update with that incident. It
+  posts as `INFO` level messages. It requires that you enable the REST
+  integration on your VictorOps account; doing so will generate a unique URL
+  that you should store as a Secret named `endpoint_url` in Relay, associated with this workflow.
+
+publish:
+  repository: relaysh/victorops-step-incident-update
+
+# optional list of examples; each one can be a Step or a complete Workflow
+examples:
+- summary: Example usage for the step
+  apiVersion: v1
+  kind: Workflow
+  parameters:
+    entity_id:
+      description: The internal entity_id for an existing VictorOps incident
+      default: ""
+    entity_display_name:
+      description: The title (display name) for the message
+      default: Relay ran a workflow, here are the results
+    state_message:
+      description: The longform body of the message
+      default: This is the default output from the Relay step
+    routing_key:
+      description: The VictorOps routing key to use for the message
+      default: ""
+    endpoint_url:
+      description: VictorOps REST endpoint, should be a Secret for production usage
+      default: ""
+  steps:
+    image: relaysh/victorops-step-incident-update
+    spec:
+      endpoint_url: !Parameter endpoint_url
+      routing_key: "relay"
+      entity_id: ""
+      entity_display_name: !Parameter entity_display_name
+      state_message: !Parameter state_message
+
+schemas:
+  spec:
+   spec:
+     source: file
+     file: spec.schema.json
