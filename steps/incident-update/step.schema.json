@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "endpoint_url": {
+      "type": "string",
+      "description": "The API endpoint URL to post to; enabled by turning on the REST integration on VictorOps"
+    },
+    "routing_key": {
+      "type": "string",
+      "description": "The VictorOps routing key, affixed to the endpoint_url to enable custom alert routing"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "An optional entity_id to include with the update; if provided, will associate this update with an existing incident"
+    },
+    "entity_display_name": {
+      "type": "string",
+      "description": "The display name (title) for the update"
+    },
+    "state_message": {
+      "type": "string",
+      "description": "The body of the message for the update"
+    }
+  }
+}

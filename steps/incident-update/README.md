@@ -1,21 +1,11 @@
-# foobar-step-template
+# victorops-step-incident-update
 
-This step is just a template, but at least it's well-documented!
+This step updates a VictorOps timeline with information from a Relay workflow.
 
 ## Specification
 
-This step expects the following fields in the `spec` section of a workflow step definition that uses it:
-
-| Setting   | Data type | Description       | Default   | Required |
-|-----------|-----------|-------------------|-----------|----------|
-|`message`  | String    | A message to emit | "default" | No       |
+See the [step.schema.json](step.schema.json) file for the formal specification of how to use this step.
 
 ## Usage
 
-```yaml
-step:
-  name: emit-message
-  image: relaysh/foobar-step-template
-  spec:
-    message: "This overrides the default"
-```
+See the [examples section in step.yaml](step.yaml) for examples of how to use this step in a workflow.

@@ -10,8 +10,32 @@ responders:
 - webhook
 
 schemas:
-  spec:
-    $schema: http://json-schema.org/draft-07/schema#
+  spec: {}
+  event:
+    source: file
+    file: event.schema.json
+
+examples:
+- summary: Receive a webhook from VictorOps when an incident is created
+  content:
+    apiVersion: v1
+    kind: Workflow
+    parameters:
+      id:
+      name:
+      state:
+      timestamp:
+    triggers:
+    - name: victorops-incident
+      source:
+        type: webhook
+        image: relaysh/victorops-trigger-incident-triggered:latest
+      binding:
+        parameters:
+          id: !Data incident
+          name: !Data webhook_payload.entity_display_name
+          state: !Data webhook_payload.entity_state
+          timestamp: !Data webhook_payload.vo_alert_rcv_time
 
 build:
   apiVersion: build/v1

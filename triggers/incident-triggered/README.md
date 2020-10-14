@@ -4,25 +4,21 @@ This [VictorOps](https://victorops.com) trigger fires when a new incident is cre
 
 ## Data Emitted 
 
-| Name | Data type | Description | 
-|------|-----------|-------------|
-| `incident_id` | string | id of the incident | 
-| `incident_name` | string | name of the incident | 
-| `incident_state` | string | severity of the incident | 
-| `service` | string | impacted service name | 
-| `incident_current_phase` | string | current phase of the incident |
+| Name              | Data type | Description |
+|-------------------|-----------|-------------|
+| `incident`        | string    | id of the incident | 
+| `webhook_payload` | mapping   | key-value pairs from the webhook payload |
 
 ## Example Trigger
 
 ```
+
 parameters:
   id:
     default: ""
   name:
     default: ""
   state:
-    default: ""
-  service:
     default: ""
   timestamp:
     default: ""
@@ -34,15 +30,13 @@ triggers:
     image: relaysh/victorops-trigger-incident-triggered:latest
   binding:
     parameters:
-      id: !Data incident_id
-      name: !Data incident_name
-      state: !Data incident_state
-      service: !Data service
-      timestamp: !Data incident_timestamp
+      id: !Data incident
+      name: !Data webhook_payload.entity_display_name
+      state: !Data webhook_payload.entity_state
+      timestamp: !Data webhook_payload.vo_alert_rcv_time
 ```
 
 ## Example Raw Data 
-
 
 ```
 POST / HTTP/1.1

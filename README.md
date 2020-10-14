@@ -3,13 +3,16 @@
 This integration provides interoperability with [VictorOps](https://www.victorops.com/) for incident response and real-time operations.
 
 
-## Actions
+## Triggers
 
-The following are supported actions: 
+|  Name                                 | Description                             | 
+|---------------------------------------|-----------------------------------------|
+| [incident-triggered](/triggers/incident-triggered)  | Processes a webhook when a new incident is triggered in VictorOps
 
-|   Type    |  Name                                 | Description                             | 
-|-----------|---------------------------------------|-----------------------------------------|
-| Trigger      | [victorops-trigger-incident-triggered](/triggers/victorops-trigger-incident-triggered)  | When a new incident is created in VictorOps | 
+## Steps
+| Name  | Description |
+|-------|-------------|
+| [incident-update](/steps/incident-update) | Posts an update to an incident timeline |
 
 ## Contributing
 
