@@ -6,9 +6,47 @@
       "type": "string",
       "description": "The incident's identifier"
     },
-    "webhook_payload": {
-      "type": "object",
-      "description": "The complete payload from the webhook in key-value pairs"
+    "created_by": {
+      "type": "string",
+      "description": "The username of the person who created the incident"
+    },
+    "entity_display_name": {
+      "type": "string",
+      "description": "The title of the incident"
+    },
+    "message_type": {
+      "type": "string"
+    },
+    "alert_type": {
+      "type": "string"
+    },
+    "entity_state": {
+      "type":"string"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "The internal VictorOps ID of the entity; used for associating updates with an incident"
+    },
+    "vo_uuid": {
+      "type": "string"
+    },
+    "state_message": {
+      "type": "string",
+      "description": "Longform body of the message"
+    },
+    "vo_organization_id": {
+      "type": "string",
+      "description": "The VictorOps organization ID"
+    },
+    "vo_monitor_type": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "vo_alert_rcv_time": {
+      "type": "string",
+      "description": "Timestamp at which the alert was received by VictorOps"
     }
   }
 }

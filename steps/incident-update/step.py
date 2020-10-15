@@ -6,19 +6,19 @@ from relay_sdk import Interface, Dynamic as D
 
 relay = Interface()
 
-url_base = relay.get(D.endpoint_url)
-routing_key = relay.get(D.routing_key)
+URLBase = relay.get(D.endpointURL)
+routingKey = relay.get(D.routingKey)
 
-url = f"{url_base}{routing_key}"
+url = f"{URLBase}{routingKey}"
 
-event_payload = {
+eventPayload = {
   'message_type': 'INFO',
-  'entity_id': relay.get(D.entity_id),
-  'entity_display_name': relay.get(D.entity_display_name),
-  'state_message': relay.get(D.state_message),
+  'entity_id': relay.get(D.entityID),
+  'entity_display_name': relay.get(D.entityDisplayName),
+  'state_message': relay.get(D.stateMessage),
 }
 
-r = requests.post(url, json=event_payload)
+r = requests.post(url, json=eventPayload)
 
 print('Emitted event to VictorOps REST API, got response: ', r.text)
 

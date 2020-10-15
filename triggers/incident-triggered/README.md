@@ -2,39 +2,9 @@
 
 This [VictorOps](https://victorops.com) trigger fires when a new incident is created. 
 
-## Data Emitted 
+## Usage and Schema
 
-| Name              | Data type | Description |
-|-------------------|-----------|-------------|
-| `incident`        | string    | id of the incident | 
-| `webhook_payload` | mapping   | key-value pairs from the webhook payload |
-
-## Example Trigger
-
-```
-
-parameters:
-  id:
-    default: ""
-  name:
-    default: ""
-  state:
-    default: ""
-  timestamp:
-    default: ""
-
-triggers:
-- name: victorops-incident
-  source:
-    type: webhook
-    image: relaysh/victorops-trigger-incident-triggered:latest
-  binding:
-    parameters:
-      id: !Data incident
-      name: !Data webhook_payload.entity_display_name
-      state: !Data webhook_payload.entity_state
-      timestamp: !Data webhook_payload.vo_alert_rcv_time
-```
+See the [event.schema.json](event.schema.json) for the formal description of its outputs and the [trigger.yaml](trigger.yaml) for usage examples.
 
 ## Example Raw Data 
 

@@ -12,20 +12,13 @@ logging.getLogger().setLevel(logging.INFO)
 async def handler():
     data = await request.form
 
-    event = { 'webhook_payload': {},
-              'incident': 0
-            }
+    event = { 'incident': 0 }
 
-    # handle incident_id a bit special since it's the main key, the rest of the
-    # payload may change so just stuff it in a top-level key unmodified
+    # the payload comes in with urlencoded double-quotes around the keys ...
     for field, value in data.items():
-        event['webhook_payload'][field] = value.strip('"')
-        if field == 'incident':
-            event['incident'] = value
+        event[field] = value.strip('"')
 
-    print("Emitting event about incident " + event['incident'] + ":::",file=sys.stderr)
-    print(event,file=sys.stderr)
-    relay.events.emit(event,key=event['webhook_payload']['entity_id'])
+    relay.events.emit(event,key=event['entity_id'])
 
     return await render_template_string("Relay received payload about {{incident}}", incident=event['incident'])
 
