@@ -17,6 +17,10 @@ description: |
 publish:
   repository: relaysh/victorops-step-incident-update
 
+build:
+  apiVersion: build/v1
+  kind: Docker
+
 # optional list of examples; each one can be a Step or a complete Workflow
 examples:
 - summary: Example usage for the step
