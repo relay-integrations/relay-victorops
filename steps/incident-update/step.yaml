@@ -20,15 +20,16 @@ publish:
 # optional list of examples; each one can be a Step or a complete Workflow
 examples:
 - summary: Example usage for the step
-  apiVersion: v1
-  kind: Step
-  image: relaysh/victorops-step-incident-update
-  spec:
-    endpointURL: !Secret endpointURL
-    routingKey: "relay"
-    entityID: ""
-    entityDisplayName: !Parameter entityDisplayName
-    stateMessage: !Parameter stateMessage
+  content:
+    apiVersion: v1
+    kind: Step
+    image: relaysh/victorops-step-incident-update
+    spec:
+      endpointURL: !Secret endpointURL
+      routingKey: "relay"
+      entityID: ""
+      entityDisplayName: !Parameter entityDisplayName
+      stateMessage: !Parameter stateMessage
 
 schemas:
   spec:
