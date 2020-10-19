@@ -1,6 +1,6 @@
 # victorops-step-incident-update
 
-This step updates a VictorOps timeline with information from a Relay workflow.
+This step updates a VictorOps timeline with information from a Relay workflow.  It will update the account timeline and optionally, if an `entity_id` for an existing incident is supplied to the step, will associate the update with that incident. It posts as `INFO` level messages. It requires that you enable the REST integration on your VictorOps account; doing so will generate a unique URL that you should store as a Secret named `endpointURL` in Relay, associated with this workflow.
 
 ## Specification
 
