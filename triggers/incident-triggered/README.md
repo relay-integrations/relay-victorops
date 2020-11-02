@@ -1,12 +1,12 @@
 # victorops-trigger-incident-triggered
 
-This [VictorOps](https://victorops.com) trigger fires when a new incident is created. 
+This [VictorOps](https://victorops.com) trigger fires when a new incident is created.
 
 ## Usage and Schema
 
-See the [event.schema.json](event.schema.json) for the formal description of its outputs and the [trigger.yaml](trigger.yaml) for usage examples.
+See the [event.schema.json](https://github.com/relay-integrations/relay-victorops/blob/master/triggers/incident-triggered/event.schema.json) for the formal description of its outputs and the [trigger.yaml](https://github.com/relay-integrations/relay-victorops/blob/master/triggers/incident-triggered/trigger.yaml) for usage examples.
 
-## Example Raw Data 
+## Example Raw Data
 
 ```
 POST / HTTP/1.1

@@ -4,8 +4,8 @@ This step updates a VictorOps timeline with information from a Relay workflow.  
 
 ## Specification
 
-See the [step.schema.json](step.schema.json) file for the formal specification of how to use this step.
+See the [step.schema.json](https://github.com/relay-integrations/relay-victorops/blob/master/steps/incident-update/spec.schema.json) file for the formal specification of how to use this step.
 
 ## Usage
 
-See the [examples section in step.yaml](step.yaml) for examples of how to use this step in a workflow.
+See the [examples section in step.yaml](https://github.com/relay-integrations/relay-victorops/blob/master/steps/incident-update/step.yaml) for examples of how to use this step in a workflow.
