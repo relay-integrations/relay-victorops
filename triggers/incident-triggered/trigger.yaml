@@ -5,7 +5,6 @@ version: 1
 summary: VictorOps incident triggered
 description: |
   This trigger fires when a VictorOps incident is triggered for the first time.
-  It uses the generic Webhook integration, defined at https://help.victorops.com/knowledge-base/escalation-webhooks/
 
 responders:
 - webhook
