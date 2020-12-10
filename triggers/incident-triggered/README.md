@@ -1,6 +1,6 @@
 # victorops-trigger-incident-triggered
 
-This [VictorOps](https://victorops.com) trigger fires when a new incident is created.
+This [VictorOps](https://victorops.com) trigger fires when a new incident is created. It uses the generic Webhook integration, defined at https://help.victorops.com/knowledge-base/escalation-webhooks/
 
 ## Usage and Schema
 
