@@ -7,7 +7,7 @@ version: 1
 summary: Update a VictorOps incident timeline
 
 description: |
-  Use this step to feed information back into VictorOps. 
+  Updates a VictorOps incident timeline with data.
 
 publish:
   repository: relaysh/victorops-step-incident-update
